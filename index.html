@@ -18,81 +18,97 @@
             padding: 20px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .tabs {
+        /* LOGIN SCREEN STYLES */
+        .login-container {
             display: flex;
-            background: rgba(255,255,255,0.2);
-            border-radius: 15px 15px 0 0;
-            overflow: hidden;
-            margin-bottom: 0;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        .tab {
-            flex: 1;
-            padding: 18px 20px;
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-
-        .tab:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .tab.active {
+        .login-box {
             background: white;
-            color: #667eea;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .tab-content {
-            display: none;
-            background: white;
-            padding: 40px;
-            border-radius: 0 0 20px 20px;
+            padding: 50px 40px;
+            border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            animation: fadeIn 0.5s ease;
+            max-width: 450px;
+            width: 100%;
+            animation: slideIn 0.5s ease;
         }
 
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
+        @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .login-header h1 {
+            color: #667eea;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .role-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .role-card {
+            padding: 25px;
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .role-card:hover {
+            border-color: #667eea;
+            background: #f0f3ff;
+            transform: translateY(-3px);
+        }
+
+        .role-card.active {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .role-card .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .role-card .title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .admin-login {
+            display: none;
+        }
+
+        .admin-login.active {
+            display: block;
         }
 
         .form-group {
@@ -122,6 +138,24 @@
             border-color: #667eea;
             background: white;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .password-input-group {
+            position: relative;
+        }
+
+        .password-input-group input {
+            padding-right: 50px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 20px;
+            user-select: none;
         }
 
         .btn {
@@ -158,6 +192,125 @@
             margin-bottom: 20px;
         }
 
+        .btn-logout {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            width: auto;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        /* MAIN APP STYLES */
+        .main-app {
+            display: none;
+        }
+
+        .main-app.active {
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .user-info {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            text-align: right;
+        }
+
+        .user-info .role {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .tabs {
+            display: flex;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 18px 20px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .tab.hidden {
+            display: none;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .message {
             padding: 15px;
             border-radius: 10px;
@@ -177,16 +330,6 @@
             background: #f8d7da;
             color: #721c24;
             border: 2px solid #f5c6cb;
-        }
-
-        .unique-id {
-            font-size: 24px;
-            font-weight: bold;
-            color: #667eea;
-            margin-top: 10px;
-            padding: 10px;
-            background: #f0f3ff;
-            border-radius: 8px;
         }
 
         .loading {
@@ -298,10 +441,19 @@
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
+            .login-box {
+                padding: 30px 25px;
             }
-            
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .user-info {
+                text-align: center;
+            }
+
             .header h1 {
                 font-size: 28px;
             }
@@ -315,99 +467,283 @@
                 padding: 25px 20px;
             }
 
-            .winners-table {
-                font-size: 14px;
-            }
-
-            .winners-table th,
-            .winners-table td {
-                padding: 10px 8px;
+            .role-selector {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎉 Lucky Draw System</h1>
-            <p>Enter to win amazing prizes!</p>
-        </div>
-
-        <div class="tabs">
-            <button class="tab active" onclick="openTab('entry')">📝 Enter Draw</button>
-            <button class="tab" onclick="openTab('hourly')">⏰ Hourly Winners</button>
-            <button class="tab" onclick="openTab('mega')">🏆 Mega Winners</button>
-        </div>
-
-        <!-- ENTRY TAB -->
-        <div id="entry" class="tab-content active">
-            <form id="entryForm">
-                <div class="form-group">
-                    <label for="userName">Full Name *</label>
-                    <input type="text" id="userName" placeholder="Enter your full name" required>
+    <!-- LOGIN SCREEN -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-container">
+            <div class="login-box">
+                <div class="login-header">
+                    <h1>🎉 Lucky Draw</h1>
+                    <p>Select your role to continue</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="phoneNumber">Phone Number *</label>
-                    <input type="tel" id="phoneNumber" placeholder="10-digit phone number" 
-                           pattern="[0-9]{10}" maxlength="10" required>
+                <div class="role-selector">
+                    <div class="role-card active" onclick="selectRole('participant')">
+                        <div class="icon">👤</div>
+                        <div class="title">Participant</div>
+                    </div>
+                    <div class="role-card" onclick="selectRole('admin')">
+                        <div class="icon">🔑</div>
+                        <div class="title">Admin</div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email (Optional)</label>
-                    <input type="email" id="email" placeholder="your.email@example.com">
+                <div class="admin-login" id="adminLogin">
+                    <div class="form-group">
+                        <label for="adminUsername">Username</label>
+                        <input type="text" id="adminUsername" placeholder="Enter admin username">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPassword">Password</label>
+                        <div class="password-input-group">
+                            <input type="password" id="adminPassword" placeholder="Enter admin password">
+                            <span class="toggle-password" onclick="toggleLoginPassword()">👁️</span>
+                        </div>
+                    </div>
                 </div>
 
-                <button type="submit" class="btn" id="submitBtn">
-                    Submit Entry
+                <button class="btn" onclick="handleLogin()" id="loginBtn">
+                    Continue as Participant
                 </button>
-            </form>
 
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <p style="margin-top: 10px; color: #666;">Submitting your entry...</p>
-            </div>
-
-            <div class="message" id="message"></div>
-
-            <div class="info-box">
-                <strong>📌 Note:</strong> Hourly winners are announced every hour, 
-                and mega draw winners will be selected from hourly winners.
+                <div class="message" id="loginMessage"></div>
             </div>
         </div>
+    </div>
 
-        <!-- HOURLY WINNERS TAB -->
-        <div id="hourly" class="tab-content">
-            <button onclick="loadHourlyWinners()" class="btn btn-refresh">
-                🔄 Refresh Winners
-            </button>
-
-            <div class="loading" id="hourlyLoading">
-                <div class="spinner"></div>
-                <p style="margin-top: 10px; color: #666;">Loading winners...</p>
+    <!-- MAIN APPLICATION -->
+    <div class="main-app" id="mainApp">
+        <div class="container">
+            <div class="header">
+                <div style="width: 150px;"></div>
+                <div class="header-content">
+                    <h1>🎉 Lucky Draw System</h1>
+                    <p>Enter to win amazing prizes!</p>
+                </div>
+                <div class="user-info">
+                    <div class="role" id="userRole">Participant</div>
+                    <button class="btn btn-logout" onclick="logout()">Logout</button>
+                </div>
             </div>
 
-            <div id="hourlyWinners"></div>
-        </div>
-
-        <!-- MEGA WINNERS TAB -->
-        <div id="mega" class="tab-content">
-            <button onclick="loadMegaWinners()" class="btn btn-refresh">
-                🔄 Refresh Winners
-            </button>
-
-            <div class="loading" id="megaLoading">
-                <div class="spinner"></div>
-                <p style="margin-top: 10px; color: #666;">Loading winners...</p>
+            <div class="tabs">
+                <button class="tab active" onclick="openTab('entry')">📝 Enter Draw</button>
+                <button class="tab hidden" id="hourlyTab" onclick="openTab('hourly')">⏰ Hourly Winners</button>
+                <button class="tab hidden" id="megaTab" onclick="openTab('mega')">🏆 Mega Winners</button>
             </div>
 
-            <div id="megaWinners"></div>
+            <!-- ENTRY TAB -->
+            <div id="entry" class="tab-content active">
+                <form id="entryForm">
+                    <div class="form-group">
+                        <label for="userName">Full Name *</label>
+                        <input type="text" id="userName" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number *</label>
+                        <input type="tel" id="phoneNumber" placeholder="10-digit phone number" 
+                               pattern="[0-9]{10}" maxlength="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email (Optional)</label>
+                        <input type="email" id="email" placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accompanying">Number of Persons Accompanying *</label>
+                        <input type="number" id="accompanying" placeholder="Enter number (e.g., 0, 1, 2...)" 
+                               min="0" max="10" value="0" required>
+                    </div>
+
+                    <button type="submit" class="btn" id="submitBtn">
+                        Submit Entry
+                    </button>
+                </form>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p style="margin-top: 10px; color: #666;">Submitting your entry...</p>
+                </div>
+
+                <div class="message" id="message"></div>
+
+                <div class="info-box">
+                    <strong>📌 Note:</strong> Hourly winners are announced every hour, 
+                    and mega draw winners will be selected from hourly winners.
+                </div>
+            </div>
+
+            <!-- HOURLY WINNERS TAB -->
+            <div id="hourly" class="tab-content">
+                <button onclick="loadHourlyWinners()" class="btn btn-refresh">
+                    🔄 Refresh Winners
+                </button>
+
+                <div class="loading" id="hourlyLoading">
+                    <div class="spinner"></div>
+                    <p style="margin-top: 10px; color: #666;">Loading winners...</p>
+                </div>
+
+                <div id="hourlyWinners"></div>
+            </div>
+
+            <!-- MEGA WINNERS TAB -->
+            <div id="mega" class="tab-content">
+                <button onclick="loadMegaWinners()" class="btn btn-refresh">
+                    🔄 Refresh Winners
+                </button>
+
+                <div class="loading" id="megaLoading">
+                    <div class="spinner"></div>
+                    <p style="margin-top: 10px; color: #666;">Loading winners...</p>
+                </div>
+
+                <div id="megaWinners"></div>
+            </div>
         </div>
     </div>
 
     <script>
         // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxGo4PZfQe1EN6Pq5ycXREyRmmOZ2bVMXu00p_V9DB2sorgn7gU9nb_vevur5yQzoY3/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8Grz8qwqAV0xDPcVgpMyLsjqVTuq-4jw3cX1N4m3Ol8bYy3j3LxPataJr2m1qkuU/exec';
+
+        // SET YOUR ADMIN CREDENTIALS HERE (CHANGE THESE!)
+        const ADMIN_USERNAME = 'yourusername';
+        const ADMIN_PASSWORD = 'YourSecurePassword2024';
+
+        // Track user state
+        let currentRole = 'participant';
+        let selectedRole = 'participant';
+
+        // Role selection
+        function selectRole(role) {
+            selectedRole = role;
+            const cards = document.querySelectorAll('.role-card');
+            cards.forEach(card => card.classList.remove('active'));
+            event.target.closest('.role-card').classList.add('active');
+
+            const adminLogin = document.getElementById('adminLogin');
+            const loginBtn = document.getElementById('loginBtn');
+
+            if (role === 'admin') {
+                adminLogin.classList.add('active');
+                loginBtn.textContent = 'Login as Admin';
+            } else {
+                adminLogin.classList.remove('active');
+                loginBtn.textContent = 'Continue as Participant';
+            }
+
+            // Clear any previous messages
+            document.getElementById('loginMessage').style.display = 'none';
+        }
+
+        // Toggle password visibility in login
+        function toggleLoginPassword() {
+            const input = document.getElementById('adminPassword');
+            const toggle = event.target;
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                toggle.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                toggle.textContent = '👁️';
+            }
+        }
+
+        // Handle login
+        function handleLogin() {
+            const message = document.getElementById('loginMessage');
+            
+            if (selectedRole === 'participant') {
+                // Direct access for participants
+                currentRole = 'participant';
+                showMainApp();
+            } else {
+                // Validate admin credentials
+                const username = document.getElementById('adminUsername').value;
+                const password = document.getElementById('adminPassword').value;
+
+                if (!username || !password) {
+                    message.className = 'message error';
+                    message.textContent = '⚠️ Please enter username and password';
+                    message.style.display = 'block';
+                    return;
+                }
+
+                if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                    currentRole = 'admin';
+                    message.className = 'message success';
+                    message.textContent = '✓ Login Successful!';
+                    message.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        showMainApp();
+                    }, 800);
+                } else {
+                    message.className = 'message error';
+                    message.textContent = '✗ Invalid username or password';
+                    message.style.display = 'block';
+                    document.getElementById('adminPassword').value = '';
+                }
+            }
+        }
+
+        // Show main application
+        function showMainApp() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('mainApp').classList.add('active');
+
+            // Update UI based on role
+            if (currentRole === 'admin') {
+                document.getElementById('userRole').textContent = '🔑 Admin';
+                document.getElementById('hourlyTab').classList.remove('hidden');
+                document.getElementById('megaTab').classList.remove('hidden');
+            } else {
+                document.getElementById('userRole').textContent = '👤 Participant';
+                document.getElementById('hourlyTab').classList.add('hidden');
+                document.getElementById('megaTab').classList.add('hidden');
+            }
+        }
+
+        // Logout
+        function logout() {
+            document.getElementById('mainApp').classList.remove('active');
+            document.getElementById('loginScreen').style.display = 'block';
+            
+            // Reset form
+            document.getElementById('adminUsername').value = '';
+            document.getElementById('adminPassword').value = '';
+            document.getElementById('loginMessage').style.display = 'none';
+            
+            // Reset to participant
+            selectRole('participant');
+            document.querySelector('.role-card').click();
+            
+            // Switch to entry tab
+            openTab('entry');
+        }
+
+        // Allow Enter key for login
+        document.getElementById('adminPassword')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleLogin();
+            }
+        });
+
+        document.getElementById('adminUsername')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('adminPassword').focus();
+            }
+        });
 
         // Tab switching
         function openTab(tabName) {
@@ -417,7 +753,17 @@
             tabs.forEach(tab => tab.classList.remove('active'));
             tabContents.forEach(content => content.classList.remove('active'));
             
-            event.target.classList.add('active');
+            // Find and activate the correct tab
+            tabs.forEach(tab => {
+                if (tab.textContent.includes('Enter Draw') && tabName === 'entry') {
+                    tab.classList.add('active');
+                } else if (tab.textContent.includes('Hourly Winners') && tabName === 'hourly') {
+                    tab.classList.add('active');
+                } else if (tab.textContent.includes('Mega Winners') && tabName === 'mega') {
+                    tab.classList.add('active');
+                }
+            });
+            
             document.getElementById(tabName).classList.add('active');
 
             // Auto-load data when switching to winners tabs
@@ -440,7 +786,8 @@
                 terminalId: 'Web',
                 userName: document.getElementById('userName').value,
                 phoneNumber: document.getElementById('phoneNumber').value,
-                email: document.getElementById('email').value || 'N/A'
+                email: document.getElementById('email').value || 'N/A',
+                accompanying: document.getElementById('accompanying').value
             };
 
             submitBtn.disabled = true;
@@ -470,6 +817,7 @@
                     message.style.display = 'block';
                     
                     document.getElementById('entryForm').reset();
+                    document.getElementById('accompanying').value = '0';
                     submitBtn.disabled = false;
                 }, 1500);
 
@@ -565,6 +913,12 @@
         // Phone number validation
         document.getElementById('phoneNumber').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        // Accompanying number validation
+        document.getElementById('accompanying').addEventListener('input', function(e) {
+            if (this.value < 0) this.value = 0;
+            if (this.value > 10) this.value = 10;
         });
     </script>
 </body>
